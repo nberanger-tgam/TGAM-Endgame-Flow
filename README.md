@@ -43,7 +43,7 @@ The are set up in Jamf for this workflow:
     - New Endgame Agent Testers
     - TouchBistroPOS
     - MADPROOFER.globeandmail.net
-    - advmadproofer.globeandmail.net<br/><br/>
+    - advmadproofer.globeandmail.net<br/>
   - The policy runs the script ***jamfEndgameInstalCheck.sh*** which works similar to the above, checking to make sure that the Endgame agent is installed, and that the computer is registered with the Endgame console. The computer will be assigned to one of the three static groups based on the results. 
 
 - If a computer is added to the ***Endgame Install Failed**, or ***Endgame Install Failed 2nd Time*** static groups, it will also be added to the ***Endgame Install Missing*** smart group.
