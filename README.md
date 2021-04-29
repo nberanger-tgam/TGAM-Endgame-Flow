@@ -28,8 +28,8 @@ There following are set up in Jamf for this workflow:
   1. Endgame installer pkg
 
 ## **The Workflow is as follows:**
-- The Endgame agent is installed via the policy ***Endgame 1 - Install Endgame (Triggered)***. This policy is either run manually, or triggered via the recurring policy ***Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)***, using the command:<br/>
-`jamf policy -event install-endgame`
+- The Endgame agent is installed via the policy ***Endgame 1 - Install Endgame (Triggered)***. This policy is either run manually, or triggered via the recurring policy ***Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)***, using the command:<br/><br/>
+  `jamf policy -event install-endgame`
   - Once the Endgame installer pkg is deployed, the script ***jamfEndgameInstall.sh*** is run. This will install the Endgame agent, and then use the Endgame API to confirm that the computer has registered with the Endgame console.
   - If the computer is found in the Endgame console, it is then added to the Jamf static group ***Endgame is Installed***.
   - If the computer is not found in the Endgame console, the script will use the Jamf API to see if the computer is in the static group ***Endgame Install Failed**
