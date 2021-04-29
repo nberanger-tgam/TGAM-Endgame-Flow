@@ -38,9 +38,13 @@ There following are set up in Jamf for this workflow:
   - If it is found in the 2nd group, then it will be added to the ***Endgame Install Failed 3 times*** static group, which will also cause it to be added to the smart group ***Endgame Install Failed at Least 3 Times***
 
 - The policy ***Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)*** is run on a daily recurrance, scoped to the ***Endgame is Installed*** static group.
-  - This policy is scoped to all users, with the exclusion of the following computers and groups:
+  - The policy is scoped to all users, excluding the following:
     - Endgame Testers (wider scope)
-  - This policy runs the script ***jamfEndgameInstalCheck.sh*** which works similar to the above, checking to make sure that the Endgame agent is installed, and that the computer is registered with the Endgame console. The computer will be assigned to one of the three static groups based on the results. 
+    - New Endgame Agent Testers
+    - TouchBistroPOS
+    - MADPROOFER.globeandmail.net
+    - advmadproofer.globeandmail.net
+  - The policy runs the script ***jamfEndgameInstalCheck.sh*** which works similar to the above, checking to make sure that the Endgame agent is installed, and that the computer is registered with the Endgame console. The computer will be assigned to one of the three static groups based on the results. 
 
 - If a computer is added to the ***Endgame Install Failed**, or ***Endgame Install Failed 2nd Time*** static groups, it will also be added to the ***Endgame Install Missing*** smart group.
   - The policy ***Endgame 3 - Uninstall Endgame (Ongoing Recurring Check-in)*** is set to run ongoing during check-in, and is scoped to the ***Endgame Install Missing*** smart group.
