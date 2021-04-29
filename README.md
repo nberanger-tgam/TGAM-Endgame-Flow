@@ -1,4 +1,4 @@
-# TGAM workflow for Elastic Endgame agent install in with Jamf
+# TGAM workflow for Elastic Endgame agent install with Jamf
 
 There following are set up in Jamf for this workflow:
 
