@@ -31,14 +31,16 @@ The are set up in Jamf for this workflow:
 - The Endgame agent is installed via the policy ***Endgame 1 - Install Endgame (Triggered)***. This policy is either run manually, or triggered via the recurring policy ***Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)***, using the command `jamf policy -event install-endgame`
   - Once the Endgame installer pkg is deployed, the script ***jamfEndgameInstall.sh*** is run. This will install the Endgame agent, and then use the Endgame API to confirm that the computer has registered with the Endgame console.
   - If the computer is found in the Endgame console, it is then added to the Jamf static group ***Endgame is Installed***.
-  - If the computer is not found in the Endgame console, the script will use the Jamf API to see if the computer is in the static group ***Endgame Install Failed***
-  - If it is not found in that group, then it will be added, which will also cause it to be added to the smart group ***Endgame Install Missing***
-  - If it is found in that group, the script will then check to see if it is in the ***Endgame Install Failed 2nd Time***
-  - If it is not found in that group, then it will be added to the 2nd group, which will also cause it to be added to the smart group ***Endgame Install Missing***
-  - If it is found in the 2nd group, then it will be added to the ***Endgame Install Failed 3 times*** static group, which will also cause it to be added to the smart group ***Endgame Install Failed at Least 3 Times***
+  - If the computer is not found in the Endgame console, the script will use the Jamf API to see if the computer is in the static group ***Endgame Install Failed***.
+  - If it is not found in that group, then it will be added, which will also cause it to be added to the smart group ***Endgame Install Missing***.
+  - If it is found in that group, the script will then check to see if it is in the ***Endgame Install Failed 2nd Time*** static group.
+  - If it is not found in that group, then it will be added to this 2nd group, which will also cause it to be added to the smart group ***Endgame Install Missing***.
+  - If it is found in the 2nd group, then it will be added to the ***Endgame Install Failed 3 times*** static group, which will also cause it to be added to the smart group ***Endgame Install Failed at Least 3 Times***.
 
 - The policy ***Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)*** is run on a daily recurrance, scoped to the ***Endgame is Installed*** static group.
   - The policy is scoped to all users, excluding the following:
+    - Endgame Install Missing
+    - Endgame Install Failed at Least 3 Times
     - Endgame Testers (wider scope)
     - New Endgame Agent Testers
     - TouchBistroPOS
