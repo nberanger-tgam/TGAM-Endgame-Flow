@@ -61,5 +61,5 @@ The are set up in Jamf for this workflow:
   - After the notification is sent out, the workflow follows the same path as if the machine had been added to the ***Endgame Install Missing*** smart group.
 
 Here is a flow chart which outlines the workflow described above:
-[TGAM Jamf Endgame Workflow Flowchart](TGAM Jamf Endgame Workflow.png)
+[TGAM Jamf Endgame Workflow Flowchart](https://github.com/nberanger-tgam/TGAM-Endgame-Flow/blob/e8aee54f33574ebe3602b640985e4ce1b587eea5/TGAM%20Jamf%20Endgame%20Workflow.png)
 
