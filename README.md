@@ -2,7 +2,7 @@
 
 There following are set up in Jamf for this workflow:
 
-**Policies:**
+### **Policies:**
   1. Endgame 1 - Install Endgame (Triggered)
   2. Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)
   3. Endgame 3 - Uninstall Endgame (Ongoing Recurring Check-in)
