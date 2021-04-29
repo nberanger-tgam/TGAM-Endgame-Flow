@@ -1,6 +1,6 @@
 # TGAM workflow for Endgame agent install with Jamf
 
-The are set up in Jamf for this workflow:
+The following are set up in Jamf for this workflow:
 
 ### **Policies:**
   1. Endgame 1 - Install Endgame (Triggered)
