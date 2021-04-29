@@ -1,41 +1,33 @@
-# TGAM-Endgame-Flow
-# TGAM workflow for Elastic Endgame agent install in with Jamf <h1>
+# TGAM workflow for Elastic Endgame agent install in with Jamf
 
 There following are set up in Jamf for this workflow:
 
-**Policies
-----------**
+**Policies:**
   1. Endgame 1 - Install Endgame (Triggered)
   2. Endgame 2 - Check for Endgame Install (Daily Recurring Check-in)
   3. Endgame 3 - Uninstall Endgame (Ongoing Recurring Check-in)
   4. Endgame 4 - Upload Jamf Logs (Triggered)
 
-**Static Groups
--------------**
+**Static Groups:**
   1. Endgame Install Failed
   2. Endgame Install Failed 2nd Time
   3. Endgame Install Failed 3 times
   4. Endgame is Installed
 
-Smart Groups
-------------
+**Smart Groups:**
   1. Endgame Install Failed at Least 3 Times
   2. Endgame Install Missing
 
-**Scripts
--------**
+**Scripts:**
   1. jamfEndgameInstall.sh
   2. jamfEndgameInstalCheck.sh
   3. jamfEndgameUninstall.sh
   4. jamfLogUpload.sh
 
-**Packages
---------**
+**Packages:**
   1. Endgame installer pkg
 
-
-**The Workflow for this is as follows:
-------**
+**The Workflow for this is as follows:**
    - The Endgame is installed via the policy "Endgame 1 - Install Endgame (Triggered)". This policy is either run manually, or via the recurring policy "Endgame    2 - Check for Endgame Install (Daily Recurring Check-in)"
    - Once the Endgame installer pkg is deployed, the script "jamfEndgameInstall.sh" is run. It will install the Endgame agent, and then use the Endgame API to      confirm that the computer has registered with the Endgame console.
    - If the computer is found in the Endgame console, the computer is then added to the Jamf static group "Endgame is Installed".
